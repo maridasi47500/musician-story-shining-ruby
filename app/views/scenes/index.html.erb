@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Scenes" %>
+
+<h1>Scenes</h1>
+
+<div id="scenes">
+  <% @scenes.each do |scene| %>
+    <%= render scene %>
+    <p>
+      <%= link_to "Show this scene", scene %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New scene", new_scene_path %>

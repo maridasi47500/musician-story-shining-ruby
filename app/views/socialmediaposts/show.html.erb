@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @socialmediapost %>
+
+<div>
+  <%= link_to "Edit this socialmediapost", edit_socialmediapost_path(@socialmediapost) %> |
+  <%= link_to "Back to socialmediaposts", socialmediaposts_path %>
+
+  <%= button_to "Destroy this socialmediapost", @socialmediapost, method: :delete %>
+</div>

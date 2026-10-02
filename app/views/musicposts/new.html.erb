@@ -1,0 +1,11 @@
+<% content_for :title, "New musicpost" %>
+
+<h1>New musicpost</h1>
+
+<%= render "form", musicpost: @musicpost %>
+
+<br>
+
+<div>
+  <%= link_to "Back to musicposts", musicposts_path %>
+</div>

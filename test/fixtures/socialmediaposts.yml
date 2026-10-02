@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  scene: one
+  description_story: MyText
+  description_pic: MyText
+  content: MyString
+  pic: MyString
+  socialmedia_name: MyString
+
+two:
+  scene: two
+  description_story: MyText
+  description_pic: MyText
+  content: MyString
+  pic: MyString
+  socialmedia_name: MyString

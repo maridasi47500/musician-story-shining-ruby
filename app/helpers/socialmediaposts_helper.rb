@@ -1,0 +1,2 @@
+module SocialmediapostsHelper
+end

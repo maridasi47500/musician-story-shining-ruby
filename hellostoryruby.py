@@ -1,0 +1,37 @@
+import os
+import re
+
+def natural_sort_key(s):
+    """
+    Splits the string into a list of integers and lowercase text parts
+    so that numeric parts are compared as numbers.
+    """
+    return [
+        int(text) if text.isdigit() else text.lower()
+        for text in re.split(r'(\d+)', s)
+    ]
+
+def sort_strings_numerically(strings):
+    if not isinstance(strings, list) or not all(isinstance(x, str) for x in strings):
+        raise ValueError("Input must be a list of strings.")
+    return sorted(strings, key=natural_sort_key)
+sql=""
+for x in range(4):
+    print("chapter no" + str(x+1))
+    chapter=str(x+1)
+    sql+="\nChapter.create(title: 'Chapter "+chapter+"', chapterno: '"+chapter+"', content: 'content of chapter "+chapter+"')"
+    for y in sort_strings_numerically(os.listdir("./Part"+chapter)):
+        #print(y)
+        filename="./Part"+chapter+"/"+y
+        with open(filename, "r", encoding="utf-8") as f: 
+            s = f.read().replace("../pics/","").replace('\n', ' ').replace('\r', '').replace('"','')
+        print(len(s))
+        for z in s.split("."):
+            sql+="\nScene.create(text: \""+z+"\", chapter_id: '"+chapter+"')"
+    
+print(sql)
+f = open("db/someseed.rb", "w", encoding="utf-8")
+f.write(sql)
+f.close()
+print("sql written to db/someseed.rb")
+

@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @musicpost %>
+
+<div>
+  <%= link_to "Edit this musicpost", edit_musicpost_path(@musicpost) %> |
+  <%= link_to "Back to musicposts", musicposts_path %>
+
+  <%= button_to "Destroy this musicpost", @musicpost, method: :delete %>
+</div>

@@ -23,7 +23,7 @@ for x in range(4):
     for y in sort_strings_numerically(os.listdir("./Part"+chapter)):
         print(y)
         filename="./Part"+chapter+"/"+y
-        with open(filename) as f: 
+        with open(filename, "r", encoding="utf-8") as f: 
             s = f.read().replace("../pics/","").replace('\n', ' ').replace('\r', '').replace('"','')
         print(len(s))
         for z in s.split("."):

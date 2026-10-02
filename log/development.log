@@ -1,0 +1,87 @@
+Using vips to process variants requires the libvips library. Please install libvips using the instructions on the libvips website.
+Using vips to process variants requires the libvips library. Please install libvips using the instructions on the libvips website.
+Using vips to process variants requires the libvips library. Please install libvips using the instructions on the libvips website.
+Using vips to process variants requires the libvips library. Please install libvips using the instructions on the libvips website.
+Using vips to process variants requires the libvips library. Please install libvips using the instructions on the libvips website.
+Using vips to process variants requires the libvips library. Please install libvips using the instructions on the libvips website.
+Using vips to process variants requires the libvips library. Please install libvips using the instructions on the libvips website.
+Using vips to process variants requires the libvips library. Please install libvips using the instructions on the libvips website.
+Using vips to process variants requires the libvips library. Please install libvips using the instructions on the libvips website.
+Using vips to process variants requires the libvips library. Please install libvips using the instructions on the libvips website.
+Using vips to process variants requires the libvips library. Please install libvips using the instructions on the libvips website.
+Using vips to process variants requires the libvips library. Please install libvips using the instructions on the libvips website.
+Using vips to process variants requires the libvips library. Please install libvips using the instructions on the libvips website.
+Using vips to process variants requires the libvips library. Please install libvips using the instructions on the libvips website.
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY) /*application='MusicianStory'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='MusicianStory'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='MusicianStory'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2026-10-02 21:51:18.592996', '2026-10-02 21:51:18.592999') RETURNING "key" /*application='MusicianStory'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='MusicianStory'*/[0m
+Migrating to CreateChapters (20261002214209)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='MusicianStory'*/[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "chapters" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "chapterno" varchar, "content" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='MusicianStory'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20261002214209') RETURNING "version" /*application='MusicianStory'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='MusicianStory'*/[0m
+Migrating to CreateScenes (20261002214448)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='MusicianStory'*/[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "scenes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "text" varchar, "chapter_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_cd5ff5d11b"
+FOREIGN KEY ("chapter_id")
+  REFERENCES "chapters" ("id")
+) /*application='MusicianStory'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_scenes_on_chapter_id" ON "scenes" ("chapter_id") /*application='MusicianStory'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20261002214448') RETURNING "version" /*application='MusicianStory'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='MusicianStory'*/[0m
+Migrating to CreateCharacters (20261002214531)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='MusicianStory'*/[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "characters" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "pic" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='MusicianStory'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20261002214531') RETURNING "version" /*application='MusicianStory'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='MusicianStory'*/[0m
+Migrating to CreateChapterhascharacters (20261002214558)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='MusicianStory'*/[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "chapterhascharacters" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "chapter_id" integer NOT NULL, "character_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_39ab439b4c"
+FOREIGN KEY ("chapter_id")
+  REFERENCES "chapters" ("id")
+, CONSTRAINT "fk_rails_22ab4ffb78"
+FOREIGN KEY ("character_id")
+  REFERENCES "characters" ("id")
+) /*application='MusicianStory'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_chapterhascharacters_on_chapter_id" ON "chapterhascharacters" ("chapter_id") /*application='MusicianStory'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_chapterhascharacters_on_character_id" ON "chapterhascharacters" ("character_id") /*application='MusicianStory'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20261002214558') RETURNING "version" /*application='MusicianStory'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='MusicianStory'*/[0m
+Migrating to CreateScenehascharacters (20261002214621)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='MusicianStory'*/[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "scenehascharacters" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "scene_id" integer NOT NULL, "character_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_a0f174a6dc"
+FOREIGN KEY ("scene_id")
+  REFERENCES "scenes" ("id")
+, CONSTRAINT "fk_rails_e9736ecfa5"
+FOREIGN KEY ("character_id")
+  REFERENCES "characters" ("id")
+) /*application='MusicianStory'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_scenehascharacters_on_scene_id" ON "scenehascharacters" ("scene_id") /*application='MusicianStory'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_scenehascharacters_on_character_id" ON "scenehascharacters" ("character_id") /*application='MusicianStory'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20261002214621') RETURNING "version" /*application='MusicianStory'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='MusicianStory'*/[0m
+Migrating to CreateSocialmediaposts (20261002214916)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='MusicianStory'*/[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "socialmediaposts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "scene_id" integer NOT NULL, "description_story" text, "description_pic" text, "content" varchar, "pic" varchar, "socialmedia_name" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_36061b62ae"
+FOREIGN KEY ("scene_id")
+  REFERENCES "scenes" ("id")
+) /*application='MusicianStory'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_socialmediaposts_on_scene_id" ON "socialmediaposts" ("scene_id") /*application='MusicianStory'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20261002214916') RETURNING "version" /*application='MusicianStory'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='MusicianStory'*/[0m
+Migrating to CreateMusicposts (20261002215017)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='MusicianStory'*/[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "musicposts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "scene_id" integer NOT NULL, "description_story" text, "description_music" text, "composer" varchar, "artist" varchar, "title" varchar, "music" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_171540288c"
+FOREIGN KEY ("scene_id")
+  REFERENCES "scenes" ("id")
+) /*application='MusicianStory'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_musicposts_on_scene_id" ON "musicposts" ("scene_id") /*application='MusicianStory'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20261002215017') RETURNING "version" /*application='MusicianStory'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='MusicianStory'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='MusicianStory'*/[0m
+Using vips to process variants requires the libvips library. Please install libvips using the instructions on the libvips website.
+Using vips to process variants requires the libvips library. Please install libvips using the instructions on the libvips website.
+Using vips to process variants requires the libvips library. Please install libvips using the instructions on the libvips website.
+Using vips to process variants requires the libvips library. Please install libvips using the instructions on the libvips website.
