@@ -14,8 +14,13 @@
         }
         body {
             background-color: #000;
+	    color: #fff;
         }
-        #iphone {
+	a, a:hover, a:link, a:visited {
+	    color: #fff;
+		
+	}
+        .iphone {
             width: 375px;
             height: 750px;
             background-color: #C2CDD3;
@@ -23,14 +28,14 @@
             border-radius: 50px;
             border: 7px solid #F1C8C4;
         }
-        #ganying {
+        .ganying {
             width: 10px;
             height: 10px;
             border-radius: 50%;
             background-color: #000;
             margin: 15px auto;
         }
-        #sxt {
+        .sxt {
             width: 13px;
             height: 13px;
             border-radius: 50%;
@@ -39,7 +44,7 @@
             margin-top: -5px;
             float: left;
         }
-        #tingtong {
+        .tingtong {
             width: 100px;
             height: 10px;
             background-color: #000;
@@ -47,45 +52,45 @@
             border-radius: 5px;
             margin-top: -5px;
         }
-        #pingmu {
+        .pingmu {
             width: 365px;
             height: 610px;
             background-color: #9E855D;
             margin: 20px auto;
         }
-        #btn {
+        .btn {
             width: 50px;
             height: 50px;
             border-radius: 50%;
             border: 3px solid #9A7371;
             margin: -5px auto;
         }
-        #tm1 {
+        .tm1 {
             color: #fff;
             font-size: 60px;
             float: left;
         }
-        #time {
+        .time {
             margin-left: 25px;
             float: left;
             margin-top: 60px;
         }
-        #tm2 {
+        .tm2 {
             color: #fff;
             margin-left: 17px;
             font-size: 20px;
         }
-        #tm3 {
+        .tm3 {
             color: #fff;
             margin-left: 42px;
             font-size: 10px;
         }
-        #ztl {
+        .ztl {
             float: left;
             margin-left: 3px;
             margin-top: 5px;
         }
-        #xh1, #xh2, #xh3, #xh4 {
+        .xh1, .xh2, .xh3, .xh4 {
             width: 7px;
             height: 7px;
             border: 1px solid #fff;
@@ -94,24 +99,24 @@
             float: left;
             margin-right: 3px;
         }
-        #xh1, #xh2, #xh3 {
+        .xh1, .xh2, .xh3 {
             background-color: #fff;
         }
-        #yhs {
+        .yhs {
             margin-top: -3px;
             float: left;
             display: block;
             color: #fff;
             margin-left: 10px;
         }
-        #dianliang {
+        .dianliang {
             width: 25px;
             height: 10px;
             border: 1px solid #fff;
             float: right;
             margin-top: 3px;
         }
-        #dl2 {
+        .dl2 {
             width: 3px;
             height: 5px;
             margin-top: 6px;
@@ -120,20 +125,20 @@
             background-color: #fff;
             margin-right: 7px;
         }
-        #dianliang:before {
+        .dianliang:before {
             width: 12px;
             height: 10px;
             background: #fff;
             content: "";
             display: block;
         }
-        #dl3 {
+        .dl3 {
             color: #fff;
             display: block;
             float: right;
             margin-right: 5px;
         }
-        #suo {
+        .suo {
             color: #fff;
             font-size: 15px;
             margin-left: -80px;

@@ -8,11 +8,13 @@ class ScenesController < ApplicationController
 
   # GET /scenes/1 or /scenes/1.json
   def show
+    @socialmediapost=Socialmediapost.new(scene_id: @scene.id)
   end
 
   # GET /scenes/new
   def new
     @scene = Scene.new
+
   end
 
   # GET /scenes/1/edit
@@ -65,6 +67,6 @@ class ScenesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def scene_params
-      params.expect(scene: [ :text, :chapter_id ])
+      params.expect(scene: [ :text, :chapter_id, :character_ids=> [] ])
     end
 end

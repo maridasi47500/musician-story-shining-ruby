@@ -1,3 +1,4 @@
+require "./db/someseed"
 class CharactersController < ApplicationController
   before_action :set_character, only: %i[ show edit update destroy ]
 

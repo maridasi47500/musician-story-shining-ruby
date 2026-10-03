@@ -20,6 +20,17 @@
     <%= form.label :chapter_id, style: "display: block" %>
     <%= form.text_field :chapter_id %>
   </div>
+  <%=form.collection_check_boxes(:character_ids, Character.all, :id, :name) do |b|%>
+    <%=b.label do%>  
+      <span>
+
+
+    <%=b.check_box%>
+      <%=b.text%>
+      </span>
+    <%end%>
+<%end%>
+  
 
   <div>
     <%= form.submit %>

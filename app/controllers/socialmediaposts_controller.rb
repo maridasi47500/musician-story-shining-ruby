@@ -25,7 +25,7 @@ class SocialmediapostsController < ApplicationController
 
     respond_to do |format|
       if @socialmediapost.save
-        format.html { redirect_to @socialmediapost, notice: "Socialmediapost was successfully created." }
+        format.html { redirect_to @socialmediapost.scene, notice: "Socialmediapost was successfully created." }
         format.json { render :show, status: :created, location: @socialmediapost }
       else
         format.html { render :new, status: :unprocessable_content }
@@ -38,7 +38,7 @@ class SocialmediapostsController < ApplicationController
   def update
     respond_to do |format|
       if @socialmediapost.update(socialmediapost_params)
-        format.html { redirect_to @socialmediapost, notice: "Socialmediapost was successfully updated.", status: :see_other }
+        format.html { redirect_to @socialmediapost.scene, notice: "Socialmediapost was successfully updated.", status: :see_other }
         format.json { render :show, status: :ok, location: @socialmediapost }
       else
         format.html { render :edit, status: :unprocessable_content }

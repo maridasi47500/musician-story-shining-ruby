@@ -5,4 +5,50 @@ static/scores/
 
 # Ignore key files for decrypting credentials and more.
 /config/*.key
+# Ignore bundler config
+/.bundle
+/vendor/bundle/
+/vendor/ruby/
+
+# Ignore database files
+/db/*.sqlite3
+/db/*.sqlite3-journal
+
+# Ignore log and temp files
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
+
+# Ignore storage (uploaded files in development)
+/storage/*
+!/storage/.keep
+
+# Ignore compiled assets and packs
+/public/assets
+/public/packs
+/public/packs-test
+
+# Ignore Yarn and Node.js files
+/node_modules/
+/yarn-error.log
+yarn-integrity
+
+# Ignore secrets and environment files
+/config/master.key
+env
+env*.local
+
+# Ignore Byebug history and other IDE-specific files
+byebug_history
+idea/
+*.swp
+
+# Ignore system-specific files
+DS_Store
+Thumbs.db
+
+# Ignore test coverage reports and temporary specs data
+/coverage/
+/spec/tmp/
 

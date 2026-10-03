@@ -1,6 +1,9 @@
 <p style="color: green"><%= notice %></p>
 
 <%= render @scene %>
+<h2>ajouter des photo de la scène dans un post de social media</h2>
+<%= render "socialmediaposts/form", socialmediapost: @socialmediapost %>
+<%= render @scene.socialmediaposts %>
 
 <div>
   <%= link_to "Edit this scene", edit_scene_path(@scene) %> |
