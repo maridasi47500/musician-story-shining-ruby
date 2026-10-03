@@ -26,6 +26,7 @@ static/scores/
 
 # Ignore compiled assets and packs
 /public/assets
+/public/uploads
 /public/packs
 /public/packs-test
 
